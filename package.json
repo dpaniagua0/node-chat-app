@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/dpaniagua0/node-chat-app#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "socker.io": "0.0.0-alpha-beta",
+    "socket.io": "^2.1.0"
   }
 }
