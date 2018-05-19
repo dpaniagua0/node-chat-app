@@ -14,4 +14,20 @@ socket.on('newEmail', function(email) {
 
 socket.on('newMessage', function(message) {
   console.log('New message from server', message);
-})
+  var li = $("<li></li>");
+  li.text(`${message.from}: ${message.text}`);
+  $("#messages").append(li);
+});
+
+$(function() {
+  var messageForm = $("#message-form");
+  $("#message-form").on('submit', function(e) {
+    e.preventDefault();
+    socket.emit('createMessage', {
+      from: 'Guest 1',
+      text: $('[name="message"]').val()
+    }, function() {
+
+    });
+  });
+});
