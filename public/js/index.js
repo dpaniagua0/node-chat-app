@@ -2,15 +2,6 @@ var socket = io();
 
 socket.on('connect', () => {
   console.log('Connected to server');
-  socket.emit('createEmail', {
-    to: 'dpaniaguam@gmail.com',
-    text: 'sent from client end'
-  });
-
-  socket.emit('createMessage', {
-    from: 'dpaniagua0@gmail.com',
-    text: 'Hey this a new message'
-  })
 });
 
 socket.on('disconnect', () => {
