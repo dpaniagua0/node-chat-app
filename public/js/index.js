@@ -49,8 +49,8 @@ $(function() {
     }
     navigator.geolocation.getCurrentPosition(function(position){
       socket.emit('createLocationMessage', {
-        latitude: position.coords.lat,
-        longitude: position.coords.long
+        lat: position.coords.latitude,
+        long: position.coords.longitude
       })
     }, function() {
       return alert('Unable to fetch location');
