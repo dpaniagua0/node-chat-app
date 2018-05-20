@@ -22,11 +22,11 @@ io.on('connection', (socket) => {
 	socket.on('createEmail', (email) => {
 		console.log('createEmail', email);
 	});
- 
+
 	socket.on('createMessage', (message, callback) => {
 		console.log('createMessage', message);
 		io.emit('newMessage', generateMessage(message.from, message.text));
-		callback('this is from the serve');
+		callback();
 	});
 
 	socket.on('createLocationMessage', (coords) => {
