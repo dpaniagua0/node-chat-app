@@ -14,16 +14,18 @@ socket.on('newEmail', function(email) {
 
 socket.on('newMessage', function(message) {
   console.log('New message from server', message);
+  var formattedTime = moment(message.createdAt).format('h:mm a');
   var li = $("<li></li>");
-  li.text(`${message.from}: ${message.text}`);
+  li.text(`${message.from} ${formattedTime}: ${message.text}`);
   $("#messages").append(li);
 });
 
 socket.on('newLocationMessage', function(message) {
   var li = $("<li></li>");
+  var formattedTime = moment(message.createdAt).format('h:mm a');
   var link = $("<a target='_blink'>My current location</a>");
 
-  li.text(`${message.from}: `);
+  li.text(`${message.from} ${formattedTime}: `);
   link.attr('href', message.url);
   $(li).append(link);
   $("#messages").append(li);
