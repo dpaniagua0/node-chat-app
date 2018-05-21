@@ -1,7 +1,15 @@
 var socket = io();
 
 socket.on('connect', () => {
-  console.log('Connected to server');
+  var params = $.deparam(window.location.seach);
+  socket.emit('join', params, function(err) {
+    if(err) {
+      alert(err);
+      window.location.href = "/";
+    } else {
+      console.log('no error');
+    }
+  });
 });
 
 socket.on('disconnect', () => {
