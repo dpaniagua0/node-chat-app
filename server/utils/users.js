@@ -5,8 +5,7 @@ class Users {
     this.users = [];
   }
 
-  addUser(name, room) {
-    var id = 123;
+  addUser(id, name, room) {
     var user = { id, name, room};
     this.users.push(user);
     return this.users;

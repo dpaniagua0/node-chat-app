@@ -13,7 +13,16 @@ socket.on('connect', () => {
 });
 
 socket.on('disconnect', () => {
-  console.log('Disconnected from server.')
+  console.log('Disconnected from server.');
+});
+
+socket.on('updateUserList', (users) => {
+  console.log('Users list', users);
+  var ol = $('<ol></ol>');
+  users.forEach(function(user) {
+    $(ol).append(`<li>${user}</li>`)
+  });
+  $("div#users").html(ol);
 });
 
 socket.on('newEmail', function(email) {
