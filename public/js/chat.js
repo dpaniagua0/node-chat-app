@@ -73,7 +73,6 @@ $(function() {
     e.preventDefault();
     var messageTextBox = $('[name="message"]');
     socket.emit('createMessage', {
-      from: 'Guest 1',
       text: $(messageTextBox).val()
     }, function() {
       $(messageTextBox).val("");
